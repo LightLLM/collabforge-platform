@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import os
 from datetime import datetime
+from api.v2 import collaborative_generation
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -17,6 +18,9 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc"
 )
+
+app = FastAPI()
+app.include_router(collaborative_generation.router, prefix="/api/v2")  # ✅ this makes /generate-plan available at /api/v2/generate-plan
 
 # Configure CORS
 app.add_middleware(
@@ -37,7 +41,8 @@ async def root():
         "version": "1.0.0",
         "docs": "/docs",
         "status": "running",
-        "timestamp": datetime.now().isoformat()
+        "timestamp": datetime.now().isoformat(),
+        "message": "CollabForge backend is running"
     }
 
 @app.get("/health")
