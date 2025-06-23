@@ -2,13 +2,33 @@
 CollabForge Platform - Main FastAPI Application
 AI-Powered Collaborative Web Application Generator
 """
-
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import os
 from datetime import datetime
 from api.v2 import collaborative_generation
+from dotenv import load_dotenv
+import vertexai
+
+
+#from fastapi import FastAPI, HTTPException
+#from fastapi.middleware.cors import CORSMiddleware
+#from fastapi.responses import JSONResponse
+#import os
+#from datetime import datetime
+#from api.v2 import collaborative_generation
+#app.include_router(collaborative_generation.router, prefix="/api/v2")
+
+#this is code to use Gemini Pro for code generation
+from dotenv import load_dotenv
+load_dotenv()
+
+import vertexai
+import os
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = ".secrets/service-account.json"
+vertexai.init(project="collabforge-adk", location="us-central1")
+
 
 # Initialize FastAPI app
 app = FastAPI(

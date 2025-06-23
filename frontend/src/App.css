@@ -172,3 +172,41 @@
     font-size: 2rem;
   }
 }
+
+.result-section {
+  background: rgba(255, 255, 255, 0.15);
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  text-align: left;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.result-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fcd34d;
+}
+
+.result-section ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.code-block {
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  margin-top: 1rem;
+}
